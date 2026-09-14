@@ -1,0 +1,17 @@
+#!/bin/bash
+
+REMOTE_URL=$(git remote get-url origin)
+
+if [[ "$REMOTE_URL" == https://github.com/* ]]; then
+    SSH_URL=$(echo "$REMOTE_URL" | sed 's#https://github.com/#git@github.com:#')
+
+    git remote set-url origin "$SSH_URL"
+
+    echo "변경 완료:"
+    echo "  $REMOTE_URL"
+    echo "  ↓"
+    echo "  $SSH_URL"
+else
+    echo "GitHub HTTPS remote가 아닙니다:"
+    echo "  $REMOTE_URL"
+fi
