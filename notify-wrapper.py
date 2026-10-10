@@ -14,7 +14,7 @@ def main() -> int:
         ],
         [
             sys.executable,
-            "/home/dslee/.codex/utils/notify.py",
+            "/home/dslee/utils/MyCustomCommand/notify.py",
             payload,
         ],
     ]
